@@ -1,127 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dimitar Dimitrov | Red Teamer & Pentester</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #0a0a0a;
-      color: #e0e0e0;
-      font-family: 'Courier New', Courier, monospace;
-    }
-    header {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: linear-gradient(to right, #0f0f0f, #1a1a1a);
-      border-bottom: 2px solid #009a00;
-      position: relative;
-    }
-    header img.profile-pic {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 130px;
-      height: auto;
-      border-radius: 10px;
-      border: 2px solid #009a00;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-    }
-    h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      color: #009a00;
-      letter-spacing: 1px;
-    }
-    p.subtitle {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-      color: #ccc;
-    }
-    main {
-      max-width: 850px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 2.5rem;
-    }
-    h2 {
-      color: #009a00;
-      border-bottom: 1px solid #333;
-      padding-bottom: 0.4rem;
-    }
-    a {
-      color: #00ffff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    li {
-      margin-bottom: 0.7rem;
-    }
-    @media screen and (max-width: 600px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      p.subtitle {
-        font-size: 1rem;
-      }
-      header img.profile-pic {
-        position: static;
-        display: block;
-        margin: 1rem auto;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimitar Dimitrov – Red Teamer | Penetration Tester</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <h1>Dimitar Dimitrov</h1>
-    <img src="IMG_0853.PNG" alt="Dimitar Dimitrov" class="profile-pic" />
-    <p class="subtitle">Red Teamer • Penetration tester</p>
-  </header>
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>
-        My name is Dimitar Dimitrov, I am 23 years old, and I am Cybersecurity graduate from the Nikola Vaptsarov Naval Academy. I have a knowledge in Linux, Windows, Networking and Security Fundamentals, certified in HackTheBox and TryHackMe and I have a strong interest in professional development in this field and actively enhance my knowledge and skills through learning and practice.
-      </p>
-    </section>
-    <section>
-      <h2>Projects & Practice work</h2>
-      <ul>
-        <li>Set up and configured virtual machines for penetration testing and vulnerability assessment.</li>
-        <li>Conducted network scanning and enumeration using Nmap.</li>
-        <li>Exploit vulnerabilities and tested payloads using Metasploit.</li>
-        <li>Discovered and tested web vulnerabilities – CVEs, XSS, SQLi, IDOR.</li>
-        <li>Captured and analyzed network traffic with Wireshark and TCPdump.</li>
-        <li>Completed Capture The Flag (CTF) challenges on platforms HackTheBox and TryHackMe.</li>
-        <li>Completed virtual lab exercises and challenge rooms on HackTheBox and TryHackMe.</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Interests</h2>
-      <ul>
-        <li>Red teaming and offensive operations</li>
-        <li>In the process of earning cybersecurity certifications such as OSCP, CEH, OWASP, and Cisco Networking</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Contact</h2>
-      <ul>
-        <li><a href="mailto:dimitrd659@gmail.com">dimitrd659@gmail.com</a></li>
-        <li><a href="https://www.linkedin.com/in/dimitar-dimitrov-7b24b3186/" target="_blank">LinkedIn</a></li>
-        <li><a href="https://t.me/dimitardimitrov07" target="_blank">Telegram: @dimitardimitrov07</a></li>
-        <li><a href="https://github.com/dimitrd659" target="_blank">GitHub</a></li>
-      </ul>
-    </section>
-  </main>
+
+    <button id="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <header>
+        <h1>Dimitar Dimitrov</h1>
+        <p class="tagline">Red Teamer | Penetration Tester | Cloud Security</p>
+        <p class="intro">Learning offensive security every day – Web, API & Cloud pentesting</p>
+        <a href="#contact" class="btn">Contact Me</a>
+        <a href="#writeups" class="btn">Write-ups</a>
+        <a href="files/cv.pdf" download class="btn secondary">Download CV</a>
+    </header>
+
+    <div class="container">
+
+        <section class="card">
+            <h2>About Me</h2>
+            <p>Strong interest in Red Teaming, Penetration Testing and Cloud Security, with knowledge of Linux, Windows, networking,
+and security fundamentals. Certified on HackTheBox and
+TryHackMe, with a commitment to continuous learning and
+professional development. Eager to contribute my fresh
+perspectives, and hands-on skills.</p>
+        </section>
+
+        <section class="card">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div>Web Application Testing     <div class="bar"><div class="fill" data-width="37"></div></div></div>
+                <div>Burp Suite & Tools         <div class="bar"><div class="fill" data-width="70"></div></div></div>
+                <div>Cloud Security (AWS/Azure) <div class="bar"><div class="fill" data-width="30"></div></div></div>
+                <div>Report Writing             <div class="bar"><div class="fill" data-width="75"></div></div></div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Certifications & Rankings</h2>
+            <ul>
+                <li>eJPT / PNPT – in progress</li>
+                <li>TryHackMe – Top 5%</li>
+                <li>HackTheBox – active player</li>
+                <li>PortSwigger Academy – completed</li>
+            </ul>
+        </section>
+
+        <section class="card" id="writeups">
+            <h2>Write-ups & Reports</h2>
+            <p>My public write-ups (12 examples):</p>
+
+            <div class="writeups-grid" id="writeups-container">
+                <!-- Първите 4 – винаги видими -->
+                <a href="writeups/1-blue.pdf" target="_blank" class="writeup-card">
+                    <h3>TryHackMe – Blue</h3>
+                    <p>EternalBlue exploitation • Mar 2025</p>
+                </a>
+                <a href="writeups/2-lame.pdf" target="_blank" class="writeup-card">
+                    <h3>HackTheBox – Lame</h3>
+                    <p>Samba exploit • Apr 2025</p>
+                </a>
+                <a href="writeups/3-optimum.pdf" target="_blank" class="writeup-card">
+                    <h3>HackTheBox – Optimum</h3>
+                    <p>Windows privesc • May 2025</p>
+                </a>
+                <a href="writeups/4-legacy.pdf" target="_blank" class="writeup-card">
+                    <h3>HackTheBox – Legacy</h3>
+                    <p>SMB vulnerability • Jun 2025</p>
+                </a>
+
+                <!-- Останалите 8 – скрити на старта -->
+                <a href="writeups/5-sql.pdf" target="_blank" class="writeup-card hidden">
+                    <h3>PortSwigger – Advanced SQLi</h3>
+                    <p>Blind SQL injection • Jul 2025</p>
+                </a>
+                <a href="writeups/6-wonderland.pdf" target="_blank" class="writeup-card hidden">
+                    <h3>TryHackMe – Wonderland</h3>
+                    <p>Rabbit hole adventure • Aug 2025</p>
+                </a>
+                <a href="writeups/7-nibbles.pdf" target="_blank" class="writeup-card hidden">
+                    <h3>HackTheBox – Nibbles</h3>
+                    <p>Nibbleblog RCE • Sep 2025</p>
+                </a>
+                <a href="writeups/8-sauna.pdf" target="_blank" class="writeup-card hidden">
+                    <h3>HackTheBox – Sauna</h3>
+                    <p>AS-REP roasting • Oct 2025</p>
+                </a>
+                <a href="writeups/9-res.pdf" target="_blank" class="writeup-card hidden">
+                  <h3>HackTheBox – Res</h3>
+                    <p>DNS enumeration • Nov 2025</p>
+                </a>
+                <a href="writeups/10-traceback.pdf" target="_blank" class="writeup-card hidden">
+                    <h3>HackTheBox – Traceback</h3>
+                    <p>Web shell upload • Nov 2025</p>
+                </a>
+                <a href="writeups/11-jerry.pdf" target="_blank" class="writeup-card hidden">
+                    <h3>HackTheBox – Jerry</h3>
+                    <p>Tomcat default creds • Dec 2025</p>
+                </a>
+                <a href="writeups/12-forest.pdf" target="_blank" class="writeup-card hidden">
+                    <h3>HackTheBox – Forest</h3>
+                    <p>Active Directory attack • Dec 2025</p>
+                </a>
+            </div>
+
+            <div class="text-center">
+                <button id="show-more-btn" class="btn">Show more write-ups</button>
+            </div>
+        </section>
+
+        <section class="card" id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:your.email@proton.me">your.email@proton.me</a></p>
+            <div class="social">
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://tryhackme.com/p/yourusername" target="_blank"><i class="fas fa-shield-alt"></i></a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>© 2025 Dimitar Dimitrov – Built with passion for security</footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
