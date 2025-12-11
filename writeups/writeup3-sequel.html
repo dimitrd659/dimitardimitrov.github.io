@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequel</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent: #39d353;
+            --accent-hover: #2ea043;
+            --heading: #00ff88;
+            --border: #30363d;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'JetBrains Mono', 'Segoe UI', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 30px 15px;
+            min-height: 100vh;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 2.6em;
+            color: var(--heading);
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            font-size: 1.15em;
+        }
+        h2 {
+            color: var(--heading);
+            font-size: 1.8em;
+            margin: 35px 0 18px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+        p, ul, pre { margin-bottom: 20px; font-size: 1.1em; }
+        ul { padding-left: 30px; }
+        li { margin-bottom: 10px; }
+        strong { color: #ffffff; }
+        code {
+            background: #21262d;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+        pre {
+            background: #21262d;
+            padding: 16px;
+            border-radius: 10px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+        @media (max-width: 768px) {
+            .card { padding: 25px; border-radius: 12px; }
+            h1 { font-size: 2.2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Sequel</h1>
+            <p class="subtitle">HackTheBox • MariaDB / MySQL Writeup</p>
+
+            <h2>Task 1 – MySQL Port</h2>
+            <p><strong>Port serving MySQL?</strong><br><strong>Answer:</strong> <code>3306</code></p>
+
+            <h2>Task 2 – MySQL Version</h2>
+            <p><strong>Community-developed MySQL version running?</strong><br><strong>Answer:</strong> <code>MariaDB</code></p>
+
+            <h2>Task 3 – Username Switch</h2>
+            <p><strong>Switch to specify login username?</strong><br><strong>Answer:</strong> <code>-u</code></p>
+            <pre>mysql --help</pre>
+
+            <h2>Task 4 – Passwordless User</h2>
+            <p><strong>Username that logs in without password?</strong><br><strong>Answer:</strong> <code>root</code></p>
+
+            <h2>Task 5 – Select Everything</h2>
+            <p><strong>Symbol to display everything inside a table?</strong><br><strong>Answer:</strong> <code>*</code></p>
+
+            <h2>Task 6 – Query Terminator</h2>
+            <p><strong>Symbol to end each SQL query?</strong><br><strong>Answer:</strong> <code>;</code></p>
+
+            <h2>Task 7 – Unique Database</h2>
+            <p><strong>Name of the fourth (unique) database?</strong><br><strong>Answer:</strong> <code>htb</code></p>
+            <pre>mysql -u root -h 10.129.58.118 --ssl=0
+SHOW databases;</pre>
+
+            <h2>Task 8 – Root Flag</h2>
+            <p><strong>Submit root flag</strong><br><strong>Flag:</strong> <code>7b4bec00d1a39e3dd4e021ec3d915da8</code></p>
+            <pre>USE htb;
+SELECT * FROM users;</pre>
+
+        </div>
+    </div>
+</body>
+</html>

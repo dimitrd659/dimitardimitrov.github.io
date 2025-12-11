@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent: #39d353;
+            --accent-hover: #2ea043;
+            --heading: #00ff88;
+            --border: #30363d;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'JetBrains Mono', 'Segoe UI', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 30px 15px;
+            min-height: 100vh;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            font-size: 2.6em;
+            color: var(--heading);
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            font-size: 1.15em;
+        }
+        h2 {
+            color: var(--heading);
+            font-size: 1.8em;
+            margin: 35px 0 18px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+        p, ul, pre { margin-bottom: 20px; font-size: 1.1em; }
+        ul { padding-left: 30px; }
+        li { margin-bottom: 10px; }
+        strong { color: #ffffff; }
+        code {
+            background: #21262d;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+        pre {
+            background: #21262d;
+            padding: 16px;
+            border-radius: 10px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+        @media (max-width: 768px) {
+            .card { padding: 25px; border-radius: 12px; }
+            h1 { font-size: 2.2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Appointment</h1>
+            <p class="subtitle">HackTheBox • Appointment Writeup</p>
+
+            <h2>Task 1 – SQL Acronym</h2>
+            <p><strong>What does the acronym SQL stand for?</strong><br><strong>Answer:</strong> <code>Structured Query Language</code></p>
+
+            <h2>Task 2 – Common Vulnerability</h2>
+            <p><strong>Most common type of SQL vulnerability?</strong><br><strong>Answer:</strong> <code>SQL injection</code></p>
+
+            <h2>Task 3 – OWASP Ranking</h2>
+            <p><strong>2021 OWASP Top 10 classification?</strong><br><strong>Answer:</strong> <code>A03:2021-Injection</code></p>
+
+            <h2>Task 4 – Web Server Version</h2>
+            <p><strong>Service & version on port 80?</strong><br><strong>Answer:</strong> <code>Apache httpd 2.4.38 ((Debian))</code></p>
+            <pre>nmap -p 80 -sV 10.129.45.166</pre>
+
+            <h2>Task 5 – HTTPS Port</h2>
+            <p><strong>Standard port for HTTPS?</strong><br><strong>Answer:</strong> <code>443</code></p>
+
+            <h2>Task 6 – Web Terminology</h2>
+            <p><strong>What is a folder called in web-application terminology?</strong><br><strong>Answer:</strong> <code>Directory</code></p>
+
+            <h2>Task 7 – HTTP 404</h2>
+            <p><strong>HTTP response code for "Not Found"?</strong><br><strong>Answer:</strong> <code>404</code></p>
+
+            <h2>Task 8 – Gobuster Switch</h2>
+            <p><strong>Gobuster switch for directory brute-forcing (not subdomains)?</strong><br><strong>Answer:</strong> <code>dir</code></p>
+
+            <h2>Task 9 – MySQL Comment</h2>
+            <p><strong>Single character to comment out the rest of a line in MySQL?</strong><br><strong>Answer:</strong> <code>#</code></p>
+
+            <h2>Task 10 – Login Bypass</h2>
+            <p><strong>First word on the page after logging in as admin without password?</strong><br><strong>Answer:</strong> <code>Congratulations</code></p>
+            <p>Payloads that work:</p>
+            <pre>admin' #
+admin'-- </pre>
+            <p>Note: <code>--</code> requires a trailing space, <code>#</code> does not.</p>
+
+            <h2>Task 11 – Root Flag</h2>
+            <p><strong>Submit root flag</strong><br><strong>Flag:</strong> <code>e3d0796d002a446c0e622226f42e9672</code></p>
+
+        </div>
+    </div>
+</body>
+</html>
