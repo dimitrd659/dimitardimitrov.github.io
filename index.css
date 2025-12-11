@@ -24,8 +24,10 @@ body { margin:0; background:var(--bg); color:var(--text-dark); font-family:'Sego
 p { 
     font-size: 20px;
 }
-li { 
-    font-size: 20px;
+.certifications { 
+    font-size: 19px;
+    color: #ffffff;
+    text-decoration: none;
 }
 header { background:linear-gradient(135deg,#000,#111); min-height:80vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:3px; }
 h1 { font-size:62px; margin:0; color:var(--accent); }
