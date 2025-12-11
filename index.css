@@ -70,3 +70,46 @@ h2 { color:var(--accent); border-bottom:3px solid var(--accent); padding-bottom:
 .social a { color:var(--text-dark); font-size:34px; margin:0 18px; }
 #theme-toggle { position:fixed; top:20px; right:20px; background:var(--accent); color:#000; border:none; width:56px; height:56px; border-radius:50%; cursor:pointer; font-size:24px; z-index:999; }
 footer { text-align:center; padding:50px; opacity:0.7; }
+
+/* Contact cards в стил Write-ups */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+    margin-top: 20px;
+}
+
+.contact-item {
+    background: #1e1e1e;
+    color: var(--text-dark);
+    padding: 26px;
+    border-radius: 16px;
+    border: 2px solid var(--accent);
+    text-decoration: none;
+    display: block;
+    transition: all 0.4s;
+    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.2);
+    font-size: 18px;
+}
+
+.contact-item i {
+    margin-right: 12px;
+    font-size: 24px;
+}
+
+.contact-item:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(0, 255, 136, 0.4);
+}
+
+/* Светла тема за контактите */
+.light-mode .contact-item {
+    background: #ffffff !important;
+    color: #222222 !important;
+    border-color: var(--accent-light) !important;
+    box-shadow: 0 6px 25px rgba(0, 204, 102, 0.25) !important;
+}
+
+.light-mode .contact-item i {
+    color: var(--accent-light);
+}
