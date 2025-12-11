@@ -33,7 +33,7 @@ h1 { font-size:62px; margin:0; color:var(--accent); }
 .intro { font-size:19px; max-width:700px; }
 .btn { display:inline-block; background:var(--accent); color:#000; padding:14px 32px; margin:12px; border-radius:50px; text-decoration:none; font-weight:bold; transition:0.3s; }
 .btn:hover { transform:scale(1.05); }
-.secondary { background:#333; }
+.secondary { background:#00ff88; }
 .container { max-width:1000px; margin:0 auto; padding:20px; }
 h2 { color:var(--accent); border-bottom:3px solid var(--accent); padding-bottom:10px; display:inline-block; }
 
