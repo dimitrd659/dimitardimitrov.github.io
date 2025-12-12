@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Menu – по-малък и компактен -->
+    <!-- Navigation Menu -->
     <nav class="navbar">
         <div class="logo">
             <img src="logo.png" alt="Logo">
@@ -16,10 +16,10 @@
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#stats">Statistics</a></li>
             <li><a href="#certifications">Certifications</a></li>
             <li><a href="#writeups">Write-ups</a></li>
             <li><a href="#contact" class="btn navbar-contact-btn">Contact</a></li>
+            <!-- Theme toggle в navbar -->
             <li class="theme-toggle-item">
                 <button id="theme-toggle">
                     <i class="fas fa-moon"></i>
@@ -32,13 +32,18 @@
     </nav>
 
     <header>
+        <!-- Профилна снимка -->
         <div class="header-profile">
-            <img src="profilepicture.png" alt="Dimitar Dimitrov">
+            <img src="profile.jpg" alt="Dimitar Dimitrov">
         </div>
+
         <div class="header-text">
             <h1>Dimitar Dimitrov</h1>
             <p class="tagline">Red Teamer | Penetration Tester | Cloud Security</p>
             <p class="intro">Learning offensive security every day – Web, API & Cloud pentesting</p>
+            <div class="typed-container">
+                <span id="typed-text"></span><span class="cursor">|</span>
+            </div>
             <a href="#contact" class="btn">Contact Me</a>
             <a href="#writeups" class="btn">Write-ups</a>
             <a href="Dimitar_Dimitrov_CV.pdf" download class="btn secondary">Download CV</a>
@@ -46,25 +51,27 @@
     </header>
 
     <div class="container">
-        <!-- Всяка секция е в .card кутийка -->
-        <section class="card" id="about">
-            <h2>About Me</h2>
-            <p>Strong interest in Red Teaming, Penetration Testing and Cloud Security, with knowledge of Linux, Windows, networking,
-            and security fundamentals. Certified on HackTheBox and TryHackMe, with a commitment to continuous learning and
-            professional development. Eager to contribute my fresh perspectives, and hands-on skills.</p>
-        </section>
-
-        <section class="card" id="skills">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div>Web Application Testing <div class="bar"><div class="fill" data-width="37"></div></div></div>
-                <div>Burp Suite & Tools <div class="bar"><div class="fill" data-width="70"></div></div></div>
-                <div>Cloud Security (AWS/Azure) <div class="bar"><div class="fill" data-width="30"></div></div></div>
-                <div>Report Writing <div class="bar"><div class="fill" data-width="75"></div></div></div>
+        <div class="about-skills-section" id="about">
+            <div class="about-me card">
+                <h2>About Me</h2>
+                <p>Strong interest in Red Teaming, Penetration Testing and Cloud Security, with knowledge of Linux, Windows, networking,
+                and security fundamentals. Certified on HackTheBox and TryHackMe, with a commitment to continuous learning and
+                professional development. Eager to contribute my fresh perspectives, and hands-on skills.</p>
             </div>
-        </section>
 
-        <section class="card" id="stats">
+            <div class="skills-small card" id="skills">
+                <h2>Skills</h2>
+                <div class="skills-grid">
+                    <div>Web Application Testing <div class="bar"><div class="fill" data-width="37"></div></div></div>
+                    <div>Burp Suite & Tools <div class="bar"><div class="fill" data-width="70"></div></div></div>
+                    <div>Cloud Security (AWS/Azure) <div class="bar"><div class="fill" data-width="30"></div></div></div>
+                    <div>Report Writing <div class="bar"><div class="fill" data-width="75"></div></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Counters -->
+        <section class="stats-section card">
             <h2>Statistics</h2>
             <div class="stats-grid">
                 <div class="stat-item">
@@ -105,8 +112,8 @@
                 <a href="writeups/writeup7-expressway" target="_blank" class="writeup-card"><h3>HackTheBox – Expressway</h3><p>IKEv1 PSK Cracking → sudo -R chroot PrivEsc</p></a>
                 <a href="writeups/writeup4-crocodile" target="_blank" class="writeup-card"><h3>HackTheBox – Crocodile</h3><p>FTP + Web Login Writeup</p></a>
                 <a href="writeups/writeup5-responder" target="_blank" class="writeup-card"><h3>HackTheBox – Responder</h3><p>LFI → Responder → NTLMv2 Relay → WinRM Writeup</p></a>
-                <a href="writeups/writeup1-redeemer" target="_blank" class="writeup-card"><h3>HackTheBox – Redeemer</h3><p>Redeemer Exploitation Writeup</p></a>
-                <a href="writeups/writeup2-appointment" target="_blank" class="writeup-card"><h3>HackTheBox – Appointment</h3><p>Appointment Writeup</p></a>
+                <a href="writeups/writeup1-redeemer" target="_blank" class="writeup-card hidden"><h3>HackTheBox – Redeemer</h3><p>Redeemer Exploitation Writeup</p></a>
+                <a href="writeups/writeup2-appointment" target="_blank" class="writeup-card hidden"><h3>HackTheBox – Appointment</h3><p>Appointment Writeup</p></a>
                 <a href="writeups/writeup3-sequel" target="_blank" class="writeup-card hidden"><h3>HackTheBox – Sequel</h3><p>MariaDB / MySQL Writeup</p></a>
                 <a href="writeups/writeup4-crocodile" target="_blank" class="writeup-card hidden"><h3>HackTheBox – Crocodile</h3><p>FTP + Web Login Writeup</p></a>
             </div>
@@ -118,12 +125,12 @@
         <section class="card" id="contact">
             <h2>Contact</h2>
             <div class="contact-grid">
-                <a href="mailto:dimitrd659@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> dimitrd659@gmail.com</a>
-                <a href="https://www.linkedin.com/in/dimitar-dimitrov-7b24b3186/" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://t.me/dimitardimitrov07" target="_blank" class="contact-item"><i class="fab fa-telegram-plane"></i> Telegram</a>
-                <a href="https://github.com/dimitrd659" target="_blank" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://ctf.hackthebox.com/user/profile/882173" target="_blank" class="contact-item"><i class="fas fa-cube"></i> HackTheBox</a>
-                <a href="https://tryhackme.com/p/DimitrD" target="_blank" class="contact-item"><i class="fas fa-shield-alt"></i> TryHackMe</a>
+                <a href="mailto:your.email@proton.me" class="contact-item"><i class="fas fa-envelope"></i> your.email@proton.me</a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/yourusername" target="_blank" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://t.me/yourusername" target="_blank" class="contact-item"><i class="fab fa-telegram-plane"></i> Telegram</a>
+                <a href="https://app.hackthebox.com/profile/yourid" target="_blank" class="contact-item"><i class="fas fa-cube"></i> HackTheBox</a>
+                <a href="https://tryhackme.com/p/yourusername" target="_blank" class="contact-item"><i class="fas fa-shield-alt"></i> TryHackMe</a>
             </div>
         </section>
     </div>
