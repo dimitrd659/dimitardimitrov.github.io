@@ -15,7 +15,7 @@ body {
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* Navbar – фиксиран горе, полупрозрачен */
+/* Navbar */
 .navbar {
     position: fixed;
     top: 0;
@@ -23,173 +23,98 @@ body {
     width: 100%;
     padding: 20px 40px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     z-index: 1000;
-    transition: all 0.4s ease;
-    background: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(10px);
+    transition: 0.4s;
+    box-sizing: border-box;
 }
 
 .navbar.scrolled {
-    background: rgba(5, 5, 5, 0.95);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+    background: rgba(10, 10, 10, 0.9);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.6);
 }
 
-/* Лого вляво */
-.navbar .logo {
-    position: absolute;
-    left: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.navbar .logo img {
-    height: 50px;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(255, 0, 51, 0.4);
-}
-
-/* Линкове */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 20px;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
-    color: #e0e0e0;
+    color: var(--text-dark);
     text-decoration: none;
     font-weight: 600;
-    font-size: 17px;
-    transition: all 0.3s ease;
-    padding: 8px 0;
-    position: relative;
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
     color: var(--accent);
 }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: var(--accent);
-    transition: all 0.3s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-    left: 0;
-}
-
-/* НОВО: Бутон "Contact" в navbar – точно като "Contact Me" в header */
-.nav-links .btn {
+/* Contact бутон в navbar */
+.navbar-contact-btn {
     background: var(--accent);
-    color: #ffffff;
-    padding: 10px 28px;
+    color: #ffffff !important;
+    padding: 10px 24px;
     border-radius: 50px;
-    font-weight: bold;
-    box-shadow: 0 6px 20px rgba(255, 0, 51, 0.3);
     transition: all 0.3s ease;
-    margin-left: 2px;
+    box-shadow: 0 4px 15px rgba(255, 0, 51, 0.3);
 }
 
-.nav-links .btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(255, 0, 51, 0.5);
+.navbar-contact-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 0, 51, 0.5);
+    color: #ffffff !important;
 }
 
-/* Ако искаш и "Write-ups" или "Download CV" – същото */
-.nav-links .btn.secondary {
-    background: transparent;
-    border: 3px solid var(--accent);
-    color: var(--accent);
-}
-
-.nav-links .btn.secondary:hover {
-    background: var(--accent);
-    color: #ffffff;
-}
-
-/* Светла тема за бутоните в navbar */
-.light-mode .nav-links .btn {
-    background: var(--accent-light);
-    box-shadow: 0 6px 20px rgba(204, 0, 38, 0.3);
-}
-
-.light-mode .nav-links .btn:hover {
-    box-shadow: 0 15px 30px rgba(204, 0, 38, 0.5);
-}
-
-.light-mode .nav-links .btn.secondary {
-    background: transparent;
-    border-color: var(--accent-light);
-    color: var(--accent-light);
-}
-
-.light-mode .nav-links .btn.secondary:hover {
-    background: var(--accent-light);
-    color: #ffffff;
-}
-
-/* Theme toggle – най-вдясно */
+/* Theme toggle в navbar */
 .theme-toggle-item {
-    margin-right: 50px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 #theme-toggle {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    color: #e0e0e0;
-    width: 48px;
-    height: 48px;
+    background: var(--accent);
+    color: #ffffff;
+    border: none;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 0, 51, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
 }
 
 #theme-toggle:hover {
-    background: var(--accent);
-    color: #ffffff;
-    border-color: var(--accent);
-    transform: scale(1.1);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 0, 51, 0.5);
 }
 
-.light-mode #theme-toggle {
-    background: rgba(0, 0, 0, 0.1);
-    color: #222222;
-    border-color: rgba(0, 0, 0, 0.2);
+#theme-toggle i {
+    pointer-events: none;
 }
 
-.light-mode #theme-toggle:hover {
-    background: var(--accent-light);
-    color: #ffffff;
-    border-color: var(--accent-light);
-}
-
-/* Hamburger меню */
 .hamburger {
     display: none;
-    color: #e0e0e0;
-    font-size: 28px;
+    color: var(--text-dark);
+    font-size: 24px;
     cursor: pointer;
 }
 
 /* Mobile menu */
 @media (max-width: 768px) {
     .navbar {
-        padding: 20px;
+        padding: 15px 20px;
     }
 
     .nav-links {
@@ -197,54 +122,30 @@ body {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(10, 10, 10, 0.98);
+        background: var(--bg);
         flex-direction: column;
-        padding: 20px 0;
+        padding: 20px;
         display: none;
-        gap: 20px;
-        text-align: center;
+        box-sizing: border-box;
     }
 
     .nav-links.active {
         display: flex;
     }
 
-    .nav-links .btn {
-        width: 80%;
-        margin: 10px auto;
-    }
-
-    .theme-toggle-item {
-        margin-left: 0;
-        margin-top: 20px;
-    }
-
     .hamburger {
         display: block;
     }
 
-    .navbar .logo {
-        left: 20px;
+    .theme-toggle-item {
+        margin-top: 10px;
     }
-}
-
-/* Останалата част от CSS остава същата като предишната ти версия */
-.card {
-    background: var(--card-dark);
-    color: var(--text-dark);
-    padding: 35px;
-    margin: 30px 0;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    transition: all 0.5s;
-}
-
-p { font-size: 20px; }
-
-.certifications {
-    font-size: 19px;
-    color: #ffffff;
-    text-decoration: none;
+    
+    #theme-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
 }
 
 /* Header */
@@ -255,24 +156,10 @@ header {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 60px 20px;
+    padding: 120px 20px 60px;
     position: relative;
     flex-wrap: wrap;
     gap: 40px;
-    margin-top: 50px;
-}
-
-.logo {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-}
-
-.logo img {
-    height: 60px;
-    width: auto;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(255, 0, 51, 0.4);
 }
 
 .header-profile img {
@@ -297,6 +184,21 @@ h1 { font-size: 62px; margin: 0; color: var(--accent); }
 .tagline { font-size: 28px; margin: 10px 0; }
 .intro { font-size: 19px; max-width: 700px; margin: 20px auto; }
 
+.typed-container {
+    font-size: 24px;
+    color: var(--accent);
+    margin: 20px 0;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 .btn {
     display: inline-block;
     background: var(--accent);
@@ -310,16 +212,45 @@ h1 { font-size: 62px; margin: 0; color: var(--accent); }
     box-shadow: 0 6px 20px rgba(255, 0, 51, 0.3);
 }
 
-.btn:hover {
+.btn:hover { 
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 15px 30px rgba(255, 0, 51, 0.5);
 }
 
-.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; margin-top: 80px; }
+
+.card {
+    background: var(--card-dark);
+    padding: 40px;
+    margin: 40px 0;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
 
 h2 { color: var(--accent); border-bottom: 3px solid var(--accent); padding-bottom: 10px; display: inline-block; }
 
-/* Skills */
+/* About + Skills */
+.about-skills-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 40px 0;
+    align-items: flex-start;
+}
+
+.about-me {
+    flex: 2;
+    min-width: 300px;
+}
+
+.skills-small {
+    flex: 1;
+    min-width: 280px;
+    max-width: 380px;
+    padding: 28px;
+}
+
+/* Skills барове */
 .skills-grid > div {
     margin: 22px 0;
     font-weight: 500;
@@ -362,49 +293,101 @@ h2 { color: var(--accent); border-bottom: 3px solid var(--accent); padding-botto
     100% { left: 100%; }
 }
 
-.light-mode .fill {
-    background: linear-gradient(to right, #990000, #cc0026, #ff0033);
-    box-shadow: 0 0 10px rgba(204, 0, 38, 0.5);
+/* Statistics */
+.stats-section {
+    text-align: center;
 }
 
-.light-mode .fill::after {
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-}
-
-/* Write-ups */
-.writeups-grid {
+.stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 28px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
     margin-top: 30px;
 }
 
-.writeup-card {
-    background: #1e1e1e;
+.stat-item {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.stat-item p {
+    font-size: 18px;
+    margin-top: 10px;
     color: var(--text-dark);
-    padding: 26px;
-    border-radius: 16px;
-    border: 2px solid var(--accent);
-    text-decoration: none;
-    display: block;
-    transition: all 0.4s;
-    box-shadow: 0 6px 20px rgba(255, 0, 51, 0.2);
 }
 
-.writeup-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 25px 50px rgba(255, 0, 51, 0.4);
+/* Write-ups */
+.writeups-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 28px; 
+    margin-top: 30px; 
 }
 
-.writeup-card h3 { margin: 0 0 10px 0; color: var(--accent); font-size: 21px; }
-.writeup-card p { margin: 0; opacity: 0.9; }
+.writeup-card { 
+    background: #1e1e1e; 
+    color: var(--text-dark); 
+    padding: 26px; 
+    border-radius: 16px; 
+    border: 2px solid var(--accent); 
+    text-decoration: none; 
+    display: block; 
+    transition: all 0.4s; 
+    box-shadow: 0 6px 20px rgba(255, 0, 51, 0.2); 
+}
 
-.hidden { display: none; }
-.text-center { text-align: center; margin-top: 40px; }
+.writeup-card:hover { 
+    transform: translateY(-12px); 
+    box-shadow: 0 25px 50px rgba(255, 0, 51, 0.4); 
+}
 
-footer { text-align: center; padding: 50px; opacity: 0.7; }
+.writeup-card h3 { 
+    margin: 0 0 10px 0; 
+    color: var(--accent); 
+    font-size: 21px; 
+}
 
-/* Contact */
+.writeup-card p { 
+    margin: 0; 
+    opacity: 0.9; 
+}
+
+.hidden { 
+    display: none; 
+}
+
+.text-center { 
+    text-align: center; 
+    margin-top: 40px; 
+}
+
+/* Show more бутон */
+#show-more-btn {
+    background: transparent;
+    border: 3px solid var(--accent);
+    color: var(--accent);
+    padding: 16px 40px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.3);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+#show-more-btn:hover {
+    background: var(--accent);
+    color: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 0, 51, 0.5);
+}
+
+footer { 
+    text-align: center; 
+    padding: 50px; 
+    opacity: 0.7; 
+}
+
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -425,80 +408,71 @@ footer { text-align: center; padding: 50px; opacity: 0.7; }
     font-size: 18px;
 }
 
-.contact-item i { margin-right: 12px; font-size: 24px; }
+.contact-item i { 
+    margin-right: 12px; 
+    font-size: 24px; 
+}
 
 .contact-item:hover {
     transform: translateY(-12px);
     box-shadow: 0 25px 50px rgba(255, 0, 51, 0.4);
 }
 
-/* Светла тема */
-.light-mode .card {
-    background: var(--card-light) !important;
-    color: var(--text-light) !important;
+/* Certifications links */
+.certifications {
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: all 0.3s;
 }
 
-.light-mode .card h2, .light-mode .card h3 {
-    color: var(--accent-light) !important;
-}
-
-.light-mode .writeup-card {
-    background: #ffffff !important;
-    color: #222222 !important;
-    border-color: var(--accent-light) !important;
-    box-shadow: 0 6px 25px rgba(204, 0, 38, 0.25) !important;
-}
-
-.light-mode .writeup-card h3 {
-    color: var(--accent-light) !important;
-}
-
-.light-mode .contact-item {
-    background: #ffffff !important;
-    color: #222222 !important;
-    border-color: var(--accent-light) !important;
-    box-shadow: 0 6px 25px rgba(204, 0, 38, 0.25) !important;
-}
-
-.light-mode .contact-item i {
-    color: var(--accent-light);
-}
-
-.light-mode .certifications {
-    color: #222222 !important;
-}
-
-.light-mode .certifications:hover {
-    color: var(--accent-light) !important;
+.certifications:hover {
+    color: var(--accent);
     text-decoration: underline;
 }
 
-.light-mode .header-profile img {
-    border-color: var(--accent-light);
-    box-shadow: 0 0 40px rgba(204, 0, 38, 0.5);
+/* Светла тема - САМО кутийките се променят */
+.light-mode .card, 
+.light-mode .writeup-card, 
+.light-mode .contact-item {
+    background: var(--card-light) !important;
+    color: var(--text-light) !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
 }
 
-.light-mode .logo img {
-    box-shadow: 0 0 20px rgba(204, 0, 38, 0.4);
+.light-mode .card h2, 
+.light-mode .writeup-card h3,
+.light-mode .contact-item h2 { 
+    color: var(--accent-light) !important; 
 }
 
-/* Show more бутон */
-#show-more-btn {
-    background: transparent;
-    border: 3px solid var(--accent);
-    color: var(--accent);
-    padding: 16px 40px;
-    font-size: 18px;
-    cursor: pointer;
-    box-shadow: 0 0 20px rgba(255, 0, 51, 0.3);
-    border-radius: 50px;
+.light-mode .card p,
+.light-mode .writeup-card p {
+    color: var(--text-light) !important;
 }
 
-#show-more-btn:hover {
-    background: var(--accent);
-    color: #ffffff;
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(255, 0, 51, 0.5);
+.light-mode .fill { 
+    background: linear-gradient(to right, #990000, #cc0026, #ff0033); 
+}
+
+.light-mode .fill::after { 
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); 
+}
+
+.light-mode .stat-item { 
+    color: var(--accent-light); 
+}
+
+.light-mode .stat-item p {
+    color: var(--text-light);
+}
+
+.light-mode .certifications { 
+    color: #222222 !important; 
+}
+
+.light-mode .certifications:hover { 
+    color: var(--accent-light) !important; 
+    text-decoration: underline; 
 }
 
 .light-mode #show-more-btn {
