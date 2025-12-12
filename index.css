@@ -8,72 +8,186 @@
     --accent-light: #00cc66;
 }
 
-body { margin:0; background:var(--bg); color:var(--text-dark); font-family:'Segoe UI',sans-serif; }
-.light-mode .card { background:var(--card-light) !important; color:var(--text-light) !important; }
-.light-mode .card h2, .light-mode .card h3 { color:var(--accent-light) !important; }
+body { 
+    margin: 0; 
+    background: var(--bg); 
+    color: var(--text-dark); 
+    font-family: 'Segoe UI', sans-serif; 
+}
+
+.light-mode .card { 
+    background: var(--card-light) !important; 
+    color: var(--text-light) !important; 
+}
+
+.light-mode .card h2, .light-mode .card h3 { 
+    color: var(--accent-light) !important; 
+}
 
 .card {
-    background:var(--card-dark);
-    color:var(--text-dark);
-    padding:35px;
-    margin:30px 0;
-    border-radius:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.6);
-    transition:all 0.5s;
+    background: var(--card-dark);
+    color: var(--text-dark);
+    padding: 35px;
+    margin: 30px 0;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    transition: all 0.5s;
 }
-p { 
-    font-size: 20px;
-}
-.certifications { 
+
+p { font-size: 20px; }
+
+.certifications {
     font-size: 19px;
     color: #ffffff;
     text-decoration: none;
 }
-header { background:linear-gradient(135deg,#000,#111); min-height:80vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:3px; }
-h1 { font-size:62px; margin:0; color:var(--accent); }
-.tagline { font-size:28px; margin:10px 0; }
-.intro { font-size:19px; max-width:700px; }
-.btn { display:inline-block; background:var(--accent); color:#000; padding:14px 32px; margin:12px; border-radius:50px; text-decoration:none; font-weight:bold; transition:0.3s; }
-.btn:hover { transform:scale(1.05); }
-.secondary { background:#00ff88; }
-.container { max-width:1000px; margin:0 auto; padding:20px; }
-h2 { color:var(--accent); border-bottom:3px solid var(--accent); padding-bottom:10px; display:inline-block; }
 
-.skills-grid > div { margin:18px 0; font-weight:500; }
-.bar { background:#333; height:26px; border-radius:13px; overflow:hidden; margin-top:8px; }
-.fill { height:100%; background:var(--accent); width:0; transition:width 2s ease; }
-
-.writeups-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:28px; margin-top:30px; }
-.writeup-card {
-    background:#1e1e1e;
-    color:var(--text-dark);
-    padding:26px;
-    border-radius:16px;
-    border:2px solid var(--accent);
-    text-decoration:none;
-    display:block;
-    transition:all 0.4s;
-    box-shadow:0 6px 20px rgba(0,255,136,0.2);
+/* Header с профилна снимка */
+header { 
+    background: linear-gradient(135deg,#000,#111); 
+    min-height: 80vh; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    padding: 60px 20px;
+    position: relative;
+    flex-wrap: wrap;
+    gap: 40px;
 }
-.writeup-card:hover { transform:translateY(-12px); box-shadow:0 25px 50px rgba(0,255,136,0.4); }
-.writeup-card h3 { margin:0 0 10px 0; color:var(--accent); font-size:21px; }
-.writeup-card p { margin:0; opacity:0.9; }
+
+.logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+.header-profile img {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid var(--accent);
+    box-shadow: 0 0 40px rgba(0, 255, 136, 0.5);
+    transition: all 0.4s;
+}
+
+.header-profile img:hover {
+    transform: scale(1.05);
+}
+
+.header-text {
+    max-width: 700px;
+}
+
+h1 { font-size: 62px; margin: 0; color: var(--accent); }
+.tagline { font-size: 28px; margin: 10px 0; }
+.intro { font-size: 19px; max-width: 700px; margin: 20px auto; }
+
+.btn { 
+    display: inline-block; 
+    background: var(--accent); 
+    color: #000; 
+    padding: 14px 32px; 
+    margin: 12px; 
+    border-radius: 50px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: 0.3s; 
+}
+
+.btn:hover { transform: scale(1.05); }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+h2 { color: var(--accent); border-bottom: 3px solid var(--accent); padding-bottom: 10px; display: inline-block; }
+
+/* About + Skills на един ред */
+.about-skills-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 40px 0;
+    align-items: flex-start;
+}
+
+.about-me {
+    flex: 2;
+    min-width: 300px;
+}
+
+.skills-small {
+    flex: 1;
+    min-width: 280px;
+    max-width: 380px;
+    padding: 28px;
+}
+
+/* Skills барове */
+.skills-grid > div { margin: 18px 0; font-weight: 500; }
+.bar { background: #333; height: 26px; border-radius: 13px; overflow: hidden; margin-top: 8px; }
+.fill { height: 100%; background: var(--accent); width: 0; transition: width 2s ease; }
+
+.writeups-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 28px; 
+    margin-top: 30px; 
+}
+
+.writeup-card {
+    background: #1e1e1e;
+    color: var(--text-dark);
+    padding: 26px;
+    border-radius: 16px;
+    border: 2px solid var(--accent);
+    text-decoration: none;
+    display: block;
+    transition: all 0.4s;
+    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.2);
+}
+
+.writeup-card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px rgba(0, 255, 136, 0.4); }
+.writeup-card h3 { margin: 0 0 10px 0; color: var(--accent); font-size: 21px; }
+.writeup-card p { margin: 0; opacity: 0.9; }
 
 .light-mode .writeup-card {
-    background:#ffffff !important;
-    color:#222222 !important;
-    border-color:var(--accent-light) !important;
-    box-shadow:0 6px 25px rgba(0,204,102,0.25) !important;
+    background: #ffffff !important;
+    color: #222222 !important;
+    border-color: var(--accent-light) !important;
+    box-shadow: 0 6px 25px rgba(0, 204, 102, 0.25) !important;
 }
-.light-mode .writeup-card h3 { color:var(--accent-light) !important; }
 
-.hidden { display:none; }
-.text-center { text-align:center; margin-top:40px; }
-.social a { color:var(--text-dark); font-size:34px; margin:0 18px; }
-#theme-toggle { position:fixed; top:20px; right:20px; background:var(--accent); color:#000; border:none; width:56px; height:56px; border-radius:50%; cursor:pointer; font-size:24px; z-index:999; }
-footer { text-align:center; padding:50px; opacity:0.7; }
+.light-mode .writeup-card h3 { color: var(--accent-light) !important; }
 
-/* Contact cards в стил Write-ups */
+.hidden { display: none; }
+.text-center { text-align: center; margin-top: 40px; }
+
+#theme-toggle { 
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
+    background: var(--accent); 
+    color: #000; 
+    border: none; 
+    width: 56px; 
+    height: 56px; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    font-size: 24px; 
+    z-index: 999; 
+}
+
+footer { text-align: center; padding: 50px; opacity: 0.7; }
+
+/* Contact */
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -94,17 +208,13 @@ footer { text-align:center; padding:50px; opacity:0.7; }
     font-size: 18px;
 }
 
-.contact-item i {
-    margin-right: 12px;
-    font-size: 24px;
-}
+.contact-item i { margin-right: 12px; font-size: 24px; }
 
 .contact-item:hover {
     transform: translateY(-12px);
     box-shadow: 0 25px 50px rgba(0, 255, 136, 0.4);
 }
 
-/* Светла тема за контактите */
 .light-mode .contact-item {
     background: #ffffff !important;
     color: #222222 !important;
@@ -112,6 +222,8 @@ footer { text-align:center; padding:50px; opacity:0.7; }
     box-shadow: 0 6px 25px rgba(0, 204, 102, 0.25) !important;
 }
 
-.light-mode .contact-item i {
-    color: var(--accent-light);
-}
+.light-mode .contact-item i { color: var(--accent-light); }
+
+/* Светла тема */
+.light-mode .header-profile img { border-color: var(--accent-light); box-shadow: 0 0 40px rgba(0, 204, 102, 0.5); }
+.light-mode .logo img { box-shadow: 0 0 20px rgba(0, 204, 102, 0.4); }
