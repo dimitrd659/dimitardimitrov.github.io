@@ -4,8 +4,8 @@
     --card-light: #ffffff;
     --text-dark: #e0e0e0;
     --text-light: #222222;
-    --accent: #ff0033;      /* Ярко червен */
-    --accent-light: #cc0026; /* По-тъмен за светла тема */
+    --accent: #ff0033;
+    --accent-light: #cc0026;
 }
 
 body {
@@ -15,25 +15,186 @@ body {
     font-family: 'Segoe UI', sans-serif;
 }
 
-.card {
-    background: var(--card-dark);
-    color: var(--text-dark);
-    padding: 35px;
-    margin: 30px 0;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    transition: all 0.5s;
+/* Navbar – фиксиран горе, полупрозрачен */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(10px);
 }
 
-p { font-size: 20px; }
+.navbar.scrolled {
+    background: rgba(5, 5, 5, 0.95);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+}
 
-.certifications {
-    font-size: 19px;
-    color: #ffffff;
+/* Лого вляво */
+.navbar .logo {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.navbar .logo img {
+    height: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.4);
+}
+
+/* Линковете */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #e0e0e0;
     text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+    position: relative;
 }
 
-/* Header с профилна снимка */
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--accent);
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Contact бутон в navbar – точно като в header */
+.nav-links .navbar-contact-btn {
+    background: var(--accent);
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 6px 20px rgba(255, 0, 51, 0.3);
+    transition: all 0.3s ease;
+}
+
+.nav-links .navbar-contact-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 0, 51, 0.5);
+}
+
+/* Theme toggle – отдясно на Contact */
+.theme-toggle-item {
+    margin-left: 30px;
+}
+
+#theme-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+#theme-toggle:hover {
+    background: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+    transform: scale(1.1);
+}
+
+.light-mode #theme-toggle {
+    background: rgba(0, 0, 0, 0.1);
+    color: #222222;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.light-mode #theme-toggle:hover {
+    background: var(--accent-light);
+    color: #ffffff;
+    border-color: var(--accent-light);
+}
+
+/* Hamburger меню */
+.hamburger {
+    display: none;
+    color: #e0e0e0;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Mobile menu */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.98);
+        flex-direction: column;
+        padding: 20px 0;
+        display: none;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .navbar-contact-btn {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .theme-toggle-item {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .navbar .logo {
+        left: 20px;
+    }
+}
+
+/* Header */
 header {
     background: linear-gradient(135deg,#000,#111);
     min-height: 80vh;
@@ -45,19 +206,6 @@ header {
     position: relative;
     flex-wrap: wrap;
     gap: 40px;
-}
-
-.logo {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-}
-
-.logo img {
-    height: 60px;
-    width: auto;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(255, 0, 51, 0.4);
 }
 
 .header-profile img {
@@ -95,7 +243,7 @@ h1 { font-size: 62px; margin: 0; color: var(--accent); }
     box-shadow: 0 6px 20px rgba(255, 0, 51, 0.3);
 }
 
-.btn:hover { 
+.btn:hover {
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 15px 30px rgba(255, 0, 51, 0.5);
 }
@@ -104,28 +252,7 @@ h1 { font-size: 62px; margin: 0; color: var(--accent); }
 
 h2 { color: var(--accent); border-bottom: 3px solid var(--accent); padding-bottom: 10px; display: inline-block; }
 
-/* About + Skills на един ред */
-.about-skills-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin: 40px 0;
-    align-items: flex-start;
-}
-
-.about-me {
-    flex: 2;
-    min-width: 300px;
-}
-
-.skills-small {
-    flex: 1;
-    min-width: 280px;
-    max-width: 380px;
-    padding: 28px;
-}
-
-/* Skills барове – по-тънки и елегантни */
+/* Skills */
 .skills-grid > div {
     margin: 22px 0;
     font-weight: 500;
@@ -134,7 +261,7 @@ h2 { color: var(--accent); border-bottom: 3px solid var(--accent); padding-botto
 
 .bar {
     background: #222;
-    height: 20px; /* По-тънки барове */
+    height: 20px;
     border-radius: 10px;
     overflow: hidden;
     margin-top: 10px;
@@ -153,7 +280,6 @@ h2 { color: var(--accent); border-bottom: 3px solid var(--accent); padding-botto
     overflow: hidden;
 }
 
-/* Блясък ефект */
 .fill::after {
     content: '';
     position: absolute;
@@ -169,7 +295,6 @@ h2 { color: var(--accent); border-bottom: 3px solid var(--accent); padding-botto
     100% { left: 100%; }
 }
 
-/* Светла тема за баровете */
 .light-mode .fill {
     background: linear-gradient(to right, #990000, #cc0026, #ff0033);
     box-shadow: 0 0 10px rgba(204, 0, 38, 0.5);
@@ -179,6 +304,57 @@ h2 { color: var(--accent); border-bottom: 3px solid var(--accent); padding-botto
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
 }
 
+/* Statistics */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    background: #1e1e1e;
+    border-radius: 16px;
+    border: 2px solid var(--accent);
+    transition: all 0.4s;
+    box-shadow: 0 6px 20px rgba(255, 0, 51, 0.2);
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 0, 51, 0.4);
+}
+
+.stat-item .counter {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--accent);
+    display: block;
+}
+
+.stat-item p {
+    font-size: 18px;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+.light-mode .stat-item {
+    background: #f0f0f0;
+    border-color: var(--accent-light);
+    box-shadow: 0 6px 20px rgba(204, 0, 38, 0.2);
+}
+
+.light-mode .stat-item:hover {
+    box-shadow: 0 20px 40px rgba(204, 0, 38, 0.4);
+}
+
+.light-mode .stat-item .counter {
+    color: var(--accent-light);
+}
+
+/* Write-ups */
 .writeups-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -208,21 +384,6 @@ h2 { color: var(--accent); border-bottom: 3px solid var(--accent); padding-botto
 
 .hidden { display: none; }
 .text-center { text-align: center; margin-top: 40px; }
-
-#theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: var(--accent);
-    color: #ffffff;
-    border: none;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 24px;
-    z-index: 999;
-}
 
 footer { text-align: center; padding: 50px; opacity: 0.7; }
 
@@ -254,7 +415,7 @@ footer { text-align: center; padding: 50px; opacity: 0.7; }
     box-shadow: 0 25px 50px rgba(255, 0, 51, 0.4);
 }
 
-/* ====================== СВЕТЛА ТЕМА – САМО В КУТИЙКИТЕ ====================== */
+/* Светла тема – само в кутийките */
 .light-mode .card {
     background: var(--card-light) !important;
     color: var(--text-light) !important;
@@ -287,7 +448,7 @@ footer { text-align: center; padding: 50px; opacity: 0.7; }
     color: var(--accent-light);
 }
 
-/* Certifications – цвят на линковете в светла тема */
+/* Certifications */
 .light-mode .certifications {
     color: #222222 !important;
 }
