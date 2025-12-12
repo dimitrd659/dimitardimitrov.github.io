@@ -14,32 +14,35 @@ window.addEventListener('load', () => {
     });
 });
 
-// Show more / Show less – loads 4 at a time
+// Show more write-ups – показва по 6, добавя по 6, има Show less
 const showMoreBtn = document.getElementById('show-more-btn');
 const allCards = document.querySelectorAll('.writeup-card');
-const hiddenCards = document.querySelectorAll('.writeup-card.hidden');
-
-let currentIndex = 0;
-const cardsPerLoad = 4;
+const initialVisible = 6;
+const cardsPerLoad = 6;
+let currentVisible = initialVisible;
 let showingAll = false;
+
+allCards.forEach((card, i) => {
+    if (i >= initialVisible) card.classList.add('hidden');
+});
 
 showMoreBtn.addEventListener('click', function() {
     if (showingAll) {
-        // Hide everything after first 4
+        // Show less – скрива всичко след първите 6
         allCards.forEach((card, i) => {
-            if (i >= 4) card.classList.add('hidden');
+            if (i >= initialVisible) card.classList.add('hidden');
         });
-        currentIndex = 0;
+        currentVisible = initialVisible;
         showingAll = false;
         this.textContent = 'Show more write-ups';
     } else {
-        // Show next 4
-        for (let i = currentIndex; i < currentIndex + cardsPerLoad; i++) {
-            if (hiddenCards[i]) hiddenCards[i].classList.remove('hidden');
+        // Show more – добавя по 6 или по-малко
+        const toShow = Math.min(cardsPerLoad, allCards.length - currentVisible);
+        for (let i = currentVisible; i < currentVisible + toShow; i++) {
+            allCards[i].classList.remove('hidden');
         }
-        currentIndex += cardsPerLoad;
-
-        if (currentIndex >= hiddenCards.length) {
+        currentVisible += toShow;
+        if (currentVisible >= allCards.length) {
             showingAll = true;
             this.textContent = 'Show less';
         }
