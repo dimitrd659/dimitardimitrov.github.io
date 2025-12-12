@@ -25,7 +25,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 1000;
     transition: 0.4s;
     box-sizing: border-box;
 }
@@ -71,6 +71,15 @@ body {
     color: #ffffff !important;
 }
 
+.light-mode .navbar-contact-btn {
+    background: var(--accent-light);
+    box-shadow: 0 4px 15px rgba(204, 0, 38, 0.3);
+}
+
+.light-mode .navbar-contact-btn:hover {
+    box-shadow: 0 8px 25px rgba(204, 0, 38, 0.5);
+}
+
 /* Theme toggle в navbar */
 .theme-toggle-item {
     display: flex;
@@ -102,6 +111,16 @@ body {
 
 #theme-toggle i {
     pointer-events: none;
+}
+
+/* Светла тема - промяна на бутона */
+.light-mode #theme-toggle {
+    background: var(--accent-light);
+    box-shadow: 0 4px 15px rgba(204, 0, 38, 0.3);
+}
+
+.light-mode #theme-toggle:hover {
+    box-shadow: 0 8px 25px rgba(204, 0, 38, 0.5);
 }
 
 .hamburger {
@@ -382,6 +401,18 @@ h2 { color: var(--accent); border-bottom: 3px solid var(--accent); padding-botto
     box-shadow: 0 15px 30px rgba(255, 0, 51, 0.5);
 }
 
+.light-mode #show-more-btn {
+    border-color: var(--accent-light);
+    color: var(--accent-light);
+    box-shadow: 0 0 20px rgba(204, 0, 38, 0.3);
+}
+
+.light-mode #show-more-btn:hover {
+    background: var(--accent-light);
+    color: #ffffff;
+    box-shadow: 0 15px 30px rgba(204, 0, 38, 0.5);
+}
+
 footer { 
     text-align: center; 
     padding: 50px; 
@@ -473,16 +504,4 @@ footer {
 .light-mode .certifications:hover { 
     color: var(--accent-light) !important; 
     text-decoration: underline; 
-}
-
-.light-mode #show-more-btn {
-    border-color: var(--accent-light);
-    color: var(--accent-light);
-    box-shadow: 0 0 20px rgba(204, 0, 38, 0.3);
-}
-
-.light-mode #show-more-btn:hover {
-    background: var(--accent-light);
-    color: #ffffff;
-    box-shadow: 0 15px 30px rgba(204, 0, 38, 0.5);
 }
